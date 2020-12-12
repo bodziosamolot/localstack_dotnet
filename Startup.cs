@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Amazon.SQS;
 using localstack_dotnet.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,10 +30,18 @@ namespace localstack_dotnet
         {
             services.AddHostedService<SqsListener>();
 
+            services.AddSingleton<IAmazonSQS>(provider =>
+            {
+                var awsConfiguration = Configuration.GetSection("Aws");
+                var localstackUrl = awsConfiguration.GetSection("localstackUrl").Value;
+                
+                return new AmazonSQSClient(new AmazonSQSConfig {ServiceURL = localstackUrl});
+            });
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "localstack_dotnet", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "localstack_dotnet", Version = "v1"});
             });
         }
 
@@ -52,10 +61,7 @@ namespace localstack_dotnet
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

@@ -10,18 +10,18 @@ using Microsoft.Extensions.Logging;
 
 namespace localstack_dotnet.Services
 {
-    public class SqsListener: BackgroundService
+    public class SqsListener : IHostedService
     {
         private readonly ILogger<SqsListener> _logger;
         private readonly IConfiguration _configuration;
-        
+
         public SqsListener(ILogger<SqsListener> logger, IConfiguration configuration)
         {
             _logger = logger;
             _configuration = configuration;
         }
 
-        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+        public async Task StartAsync(CancellationToken stoppingToken)
         {
             while (!stoppingToken.IsCancellationRequested)
             {
@@ -32,10 +32,18 @@ namespace localstack_dotnet.Services
                 var accessKey = aswSection.GetSection("AccessKey").Value;
                 var secretKey = aswSection.GetSection("SecretKey").Value;
                 var sqsUrl = aswSection.GetSection("SQSUrl").Value;
+                var localstackUrl = aswSection.GetSection("localstackUrl").Value;
 
                 //Creating sqs client
                 var credentials = new Amazon.Runtime.BasicAWSCredentials(accessKey, secretKey);
-                AmazonSQSClient amazonSQSClient = new AmazonSQSClient(credentials, Amazon.RegionEndpoint.USEast2);
+                
+                _logger.LogInformation($"Using SQS queue url {sqsUrl}", sqsUrl);
+                _logger.LogInformation("Using credentials: {access}, {secret}", accessKey, secretKey);
+                
+                AmazonSQSClient amazonSQSClient = new AmazonSQSClient(new AmazonSQSConfig
+                {
+                    ServiceURL = localstackUrl
+                });
 
                 //Receive request
                 ReceiveMessageRequest receiveMessageRequest = new ReceiveMessageRequest(sqsUrl);
@@ -58,6 +66,13 @@ namespace localstack_dotnet.Services
 
                 await Task.Delay(5000, stoppingToken);
             }
+        }
+
+        public Task StopAsync(CancellationToken cancellationToken)
+        {
+            Console.WriteLine($"Message received");
+            
+            return Task.CompletedTask;
         }
     }
 }
