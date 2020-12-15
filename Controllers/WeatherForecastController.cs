@@ -14,11 +14,5 @@ namespace localstack_dotnet.Controllers
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
         }
-
-        [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
-        {
-            return null;
-        }
     }
 }
