@@ -23,8 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48d6f3a5-7028-4526-8439-4467ebf2f684" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.localstack_dotnet.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.localstack_dotnet.dir/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.localstack_dotnet.dir/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.localstack_dotnet.dir/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.localstack_dotnet.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.localstack_dotnet.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/WeatherForecastController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/WeatherForecastController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +100,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607711235084</updated>
       <workItem from="1607711243196" duration="1942000" />
+      <workItem from="1608018044814" duration="37000" />
     </task>
     <task id="LOCAL-00001" summary="in progress">
       <created>1607711304104</created>
@@ -119,7 +122,7 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -131,6 +134,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
@@ -225,40 +229,19 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Services/SqsListener.cs</url>
           <line>58</line>
-          <properties documentPath="E:\localstack_dotnet\Services\SqsListener.cs" initialLine="58">
-            <startOffsets>
-              <option value="2376" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2414" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="E:\localstack_dotnet\Services\SqsListener.cs" initialLine="58" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Services/SqsListener.cs</url>
           <line>41</line>
-          <properties documentPath="E:\localstack_dotnet\Services\SqsListener.cs" initialLine="41">
-            <startOffsets>
-              <option value="1616" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1711" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="E:\localstack_dotnet\Services\SqsListener.cs" initialLine="41" />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Services/SqsListener.cs</url>
           <line>43</line>
-          <properties documentPath="E:\localstack_dotnet\Services\SqsListener.cs" initialLine="43">
-            <startOffsets>
-              <option value="1729" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1757" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="E:\localstack_dotnet\Services\SqsListener.cs" initialLine="43" />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
